@@ -30,7 +30,7 @@ def allips(lis):
     global headers
     ips = []
     for asn in lis:
-        ipli = getcon('http://ipinfo.io/{0}'.format(ipli))
+        ipli = getcon('http://ipinfo.io/{0}'.format(asn))
         for ip in ipli:
             ips.append(ip)
     return ips
