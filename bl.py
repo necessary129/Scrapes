@@ -38,7 +38,7 @@ def allips(lis):
 
 def main():
     allasns = getcon('http://bgp.he.net/country/ID') + getcon('http://bgp.he.net/country/CN')
-    ips = allips(allans)
+    ips = allips(allasns)
     with open('blacklist.txt') as bl:
         bl.write("\n".join(ips))
 
