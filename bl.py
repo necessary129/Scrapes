@@ -2,11 +2,11 @@
 
 from bs4 import BeautifulSoup as sop
 import urllib.request as reqa
-
+import re
 global user_agent,headers
 user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36'
 headers = { 'User-Agent' : user_agent }
-
+ipre = re.compile(r'(\d+\.\d+\.\d+\.\d+\?\d*)')
 def getpage(url):
     req = reqa.Request(url,None, headers)
     res = reqa.urlopen(req)
@@ -33,7 +33,9 @@ def allips(lis):
         try:
             ipli = getcon('http://ipinfo.io/{0}'.format(asn))
             for ip in ipli:
-                ips.append(ip)
+                ip1 = ipre.findall(ip)[0]
+                if ip1:
+                    ips.append(ip1)
         except:
             pass
     return ips
