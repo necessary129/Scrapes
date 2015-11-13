@@ -8,8 +8,8 @@ user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Ge
 headers = { 'User-Agent' : user_agent }
 
 def getpage(url):
-    req = requa.Request(url,None, headers)
-    res = requa.urlopen(req)
+    req = reqa.Request(url,None, headers)
+    res = reqa.urlopen(req)
     page = res.read()
     return page
 
